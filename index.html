@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8BitCat ($8BIT) | The Legend of Solana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4d6d;
+            --secondary: #533483;
+            --bg: #0f0c29;
+            --text: #ffffff;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: var(--text);
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 100px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-bottom: 5px solid var(--primary);
+        }
+
+        .hero-img {
+            width: 200px;
+            height: 200px;
+            border: 4px solid var(--primary);
+            image-rendering: pixelated;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        h1 { font-size: 2.5rem; color: var(--primary); text-shadow: 4px 4px #000; margin: 10px 0; }
+        p { font-size: 0.8rem; color: #ccc; margin-bottom: 30px; }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            font-size: 0.7rem;
+            border: 4px solid #fff;
+            box-shadow: 6px 6px 0px #000;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        .ca-box {
+            background: rgba(0,0,0,0.6);
+            padding: 20px;
+            margin: 40px auto;
+            max-width: 80%;
+            border: 2px dashed var(--primary);
+            cursor: pointer;
+        }
+
+        .ca-box:active { background: var(--secondary); }
+
+        .section { padding: 80px 20px; max-width: 900px; margin: auto; }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: rgba(22, 33, 62, 0.9);
+            padding: 25px;
+            border-left: 5px solid var(--primary);
+            font-size: 0.7rem;
+        }
+
+        footer {
+            padding: 50px;
+            background: #000;
+            font-size: 0.6rem;
+            color: #666;
+        }
+
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="font-size: 5rem; margin-bottom: 20px;">🐈</div> 
+    <h1>8BITCAT</h1>
+    <p class="blink">Leveling up on Solana Ecosystem...</p>
+    
+    <a href="https://raydium.io/swap/?inputMint=sol&outputMint=4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R&referrer=GCg4okVEVKh487ZQM9pngrkunghHs1mrTQZToY21a2oi" target="_blank" class="btn">BUY ON RAYDIUM</a>
+</header>
+
+<div class="section">
+    <h2>CONTRACT ADDRESS</h2>
+    <div class="ca-box" onclick="copyCA()">
+        <span id="ca-text" style="font-size: 0.6rem;">4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R</span>
+        <p style="margin-top:10px; font-size:0.5rem; color: var(--primary);">(Click to copy)</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>TOKENOMICS</h2>
+    <div class="stats">
+        <div class="stat-card">
+            <h3 style="color: var(--primary);">LIQUIDITY</h3>
+            <p>100% BURNED 🔥</p>
+        </div>
+        <div class="stat-card">
+            <h3 style="color: var(--primary);">TAXES</h3>
+            <p>0% BUY / 0% SELL</p>
+        </div>
+        <div class="stat-card">
+            <h3 style="color: var(--primary);">OWNERSHIP</h3>
+            <p>RENOUNCED 🛡️</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>JOIN THE COMMUNITY</h2>
+    <p>The pixelated revolution will not be televised, it will be on Solana!</p>
+    <a href="https://t.me/project_bit" target="_blank" class="btn" style="background: #24A1DE;">TELEGRAM</a>
+    <a href="https://x.com/chinesXNZ" target="_blank" class="btn" style="background: #000;">TWITTER (X)</a>
+</div>
+
+<footer>
+    <p>&copy; 2026 8BITCAT TEAM. <br> INVEST IN MEMES, BELIEVE IN PIXELS.</p>
+</footer>
+
+<script>
+    function copyCA() {
+        const ca = "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R";
+        navigator.clipboard.writeText(ca);
+        alert("Contract Address copied to clipboard!");
+    }
+</script>
+
+</body>
+</html>
