@@ -11,6 +11,7 @@
             --secondary: #533483;
             --bg: #0f0c29;
             --text: #ffffff;
+            --neon: #00ff00;
         }
 
         body {
@@ -23,18 +24,48 @@
         }
 
         header {
-            padding: 100px 20px;
+            padding: 60px 20px;
             background: rgba(0, 0, 0, 0.4);
             border-bottom: 5px solid var(--primary);
         }
 
-        .hero-img {
-            width: 200px;
-            height: 200px;
-            border: 4px solid var(--primary);
-            image-rendering: pixelated;
-            margin-bottom: 20px;
-            box-shadow: 0 0 20px var(--primary);
+        /* LIVE DASHBOARD DESIGN */
+        .live-dashboard {
+            background: rgba(0, 0, 0, 0.85);
+            border: 3px solid var(--primary);
+            max-width: 600px;
+            margin: -30px auto 40px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .stat-item h4 { font-size: 10px; color: #aaa; margin-bottom: 10px; text-transform: uppercase; }
+        
+        .stat-value { 
+            font-size: 12px; 
+            color: var(--neon); 
+            text-shadow: 0 0 10px var(--neon);
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        /* Puls animatsiyasi */
+        .update-flash {
+            animation: flash-green 0.8s ease-out;
+        }
+
+        @keyframes flash-green {
+            0% { color: #ffffff; text-shadow: 0 0 20px #ffffff; transform: scale(1.1); }
+            100% { color: var(--neon); text-shadow: 0 0 10px var(--neon); transform: scale(1); }
         }
 
         h1 { font-size: 2.5rem; color: var(--primary); text-shadow: 4px 4px #000; margin: 10px 0; }
@@ -51,47 +82,32 @@
             border: 4px solid #fff;
             box-shadow: 6px 6px 0px #000;
             transition: 0.2s;
+            cursor: pointer;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 2px 2px 0px #000;
-        }
+        .btn:hover { transform: scale(1.05); box-shadow: 2px 2px 0px #000; }
 
         .ca-box {
             background: rgba(0,0,0,0.6);
             padding: 20px;
             margin: 40px auto;
-            max-width: 80%;
+            max-width: 85%;
             border: 2px dashed var(--primary);
             cursor: pointer;
+            word-break: break-all;
         }
 
-        .ca-box:active { background: var(--secondary); }
-
-        .section { padding: 80px 20px; max-width: 900px; margin: auto; }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
+        .section { padding: 40px 20px; max-width: 900px; margin: auto; }
 
         .stat-card {
             background: rgba(22, 33, 62, 0.9);
             padding: 25px;
             border-left: 5px solid var(--primary);
-            font-size: 0.7rem;
-        }
-
-        footer {
-            padding: 50px;
-            background: #000;
             font-size: 0.6rem;
-            color: #666;
+            margin: 10px;
         }
 
+        footer { padding: 50px; background: #000; font-size: 0.6rem; color: #666; }
         .blink { animation: blinker 1s linear infinite; }
         @keyframes blinker { 50% { opacity: 0; } }
     </style>
@@ -99,52 +115,52 @@
 <body>
 
 <header>
-    <img src="logo.png" alt="8BitCat Logo" style="width: 200px; height: 200px; border: 4px solid #ff4d6d; image-rendering: pixelated; margin-bottom: 20px; box-shadow: 0 0 20px #ff4d6d;"> 
+    <img src="logo.png" alt="8BitCat Logo" style="width: 180px; height: 180px; border: 4px solid var(--primary); image-rendering: pixelated; margin-bottom: 20px; box-shadow: 0 0 20px var(--primary);"> 
     <h1>8BITCAT</h1>
     <p class="blink">Leveling up on Solana Ecosystem...</p>
-    
-    <a href="🐱" target="_blank" class="btn">Buy on Raydium</a>
+    <a href="https://raydium.io/swap/?inputMint=sol&outputMint=AZFKmEjsPYnxf3ZKn3pu2KpgvmC1ENuJU7oHtEej4k81" target="_blank" class="btn">BUY ON RAYDIUM</a>
 </header>
 
+<div class="live-dashboard">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <h4>PRICE USD</h4>
+            <span id="price" class="stat-value">LOADING...</span>
+        </div>
+        <div class="stat-item">
+            <h4>MARKET CAP</h4>
+            <span id="mcap" class="stat-value">LOADING...</span>
+        </div>
+    </div>
+</div>
+
 <div class="section">
-    <h2>​🐱 $8BITCAT: Back & Fully Funded! 🚀
-​Dev Update:
-I’m being 100% honest—I’m a new dev and accidentally removed liquidity earlier due to a technical mistake. But I didn't run. What I've done:
-​✅ 7.2 SOL Re-added: Liquidity is back in the Raydium CPMM pool.
-​✅ Trading is LIVE: You can buy/sell $8BIT safely now.
-​✅ Lesson Learned: I’m here to build this project with you, not leave it.
-​I made a mistake, I fixed it, and now we moon!</h2>
+    <h2 style="font-size: 1rem; line-height: 1.8;">🐱 $8BITCAT: BACK & STRONGER!</h2>
+    <p style="font-size: 0.7rem;">7.2 SOL Liquidity Re-added | 100% Transparency | Dev is here to stay!</p>
+    
     <div class="ca-box" onclick="copyCA()">
-        <span id="ca-text" style="font-size: 0.6rem;">$8BITCAT is Back & Stronger!</span>
+        <p style="font-size: 0.5rem; color: #aaa; margin-bottom: 10px;">CONTRACT ADDRESS:</p>
+        <span id="ca-text" style="font-size: 0.7rem; color: var(--neon);">AZFKmEjsPYnxf3ZKn3pu2KpgvmC1ENuJU7oHtEej4k81</span>
         <p style="margin-top:10px; font-size:0.5rem; color: var(--primary);">(Click to copy)</p>
     </div>
 </div>
 
 <div class="section">
-    <h2>TOKENOMICS</h2>
-    <div class="stats">
-        <div class="stat-card">
-            <h3 style="color: var(--primary);">LIQUIDITY</h3>
-            <p>100% BURNED 🔥</p>
-        </div>
-        <div class="stat-card">
-            <h3 style="color: var(--primary);">TAXES</h3>
-            <p>0% BUY / 0% SELL</p>
-        </div>
-        <div class="stat-card">
-            <h3 style="color: var(--primary);">OWNERSHIP</h3>
-            <p>RENOUNCED 🛡️</p>
-        </div>
+    <h2 style="margin-bottom: 30px;">TOKENOMICS</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <div class="stat-card"><h3>LIQUIDITY</h3><p>100% BURNED 🔥</p></div>
+        <div class="stat-card"><h3>TAXES</h3><p>0% BUY/SELL</p></div>
+        <div class="stat-card"><h3>OWNERSHIP</h3><p>RENOUNCED 🛡️</p></div>
     </div>
+    
     <iframe 
-  src="https://dexscreener.com/solana/84hq8C3az5rpVGE1UBwwFZ9mkpxJbadaGYwWDsHbzXeh?embed=1&theme=dark&trades=1&info=0" 
-  style="width: 100%; height: 700px; border: none; margin-top: 20px; border-radius: 10px; box-shadow: 0 0 15px #ff4d6d;">
-</iframe>
+        src="https://dexscreener.com/solana/84hq8C3az5rpVGE1UBwwFZ9mkpxJbadaGYwWDsHbzXeh?embed=1&theme=dark&trades=1&info=0" 
+        style="width: 100%; height: 600px; border: none; margin-top: 40px; border-radius: 10px; box-shadow: 0 0 15px #ff4d6d;">
+    </iframe>
 </div>
 
 <div class="section">
-    <h2>JOIN THE COMMUNITY</h2>
-    <p>The pixelated revolution will not be televised, it will be on Solana!</p>
+    <h2>JOIN THE REVOLUTION</h2>
     <a href="https://t.me/project_bit" target="_blank" class="btn" style="background: #24A1DE;">TELEGRAM</a>
     <a href="https://x.com/chinesXNZ" target="_blank" class="btn" style="background: #000;">TWITTER (X)</a>
 </div>
@@ -157,57 +173,38 @@ I’m being 100% honest—I’m a new dev and accidentally removed liquidity ear
     function copyCA() {
         const ca = "AZFKmEjsPYnxf3ZKn3pu2KpgvmC1ENuJU7oHtEej4k81";
         navigator.clipboard.writeText(ca);
-        alert("Contract Address copied to clipboard!");
+        alert("Contract Address copied!");
     }
-</script>
-<div id="stats-container" style="background: rgba(20, 20, 20, 0.8); padding: 20px; border-radius: 15px; margin: 25px auto; border: 2px solid #ff4d6d; max-width: 400px; font-family: 'Courier New', Courier, monospace; box-shadow: 0 0 20px rgba(255, 77, 109, 0.4);">
-    <h3 style="color: #ff4d6d; margin-top: 0; text-transform: uppercase; font-size: 18px;">📈 Live Market Data</h3>
-    
-    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dotted #444; padding-bottom: 5px;">
-        <span style="color: #aaa;">Price USD:</span>
-        <span id="price" style="font-weight: bold; color: #00ff00;">Loading...</span>
-    </div>
 
-    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dotted #444; padding-bottom: 5px;">
-        <span style="color: #aaa;">Market Cap:</span>
-        <span id="mcap" style="font-weight: bold; color: #fff;">Loading...</span>
-    </div>
+    async function fetchStats() {
+        try {
+            const response = await fetch('https://api.dexscreener.com/latest/dex/pairs/solana/84hq8C3az5rpVGE1UBwwFZ9mkpxJbadaGYwWDsHbzXeh');
+            const data = await response.json();
+            const pair = data.pair;
 
-    <div style="display: flex; justify-content: space-between;">
-        <span style="color: #aaa;">24h Trades:</span>
-        <span id="trades" style="font-weight: bold; color: #ff4d6d;">Loading...</span>
-    </div>
-    
-    <p style="font-size: 10px; color: #666; margin-top: 15px; font-style: italic;">Updates automatically every 30s via DexScreener API</p>
-</div>
+            if (pair) {
+                const priceElem = document.getElementById('price');
+                const mcapElem = document.getElementById('mcap');
 
-<script>
-async function fetchTokenData() {
-    try {
-        // Fetching data for 8BIT/SOL pair
-        const response = await fetch('https://api.dexscreener.com/latest/dex/pairs/solana/84hq8C3az5rpVGE1UBwwFZ9mkpxJbadaGYwWDsHbzXeh');
-        const data = await response.json();
-        const pair = data.pair;
+                // Yangi qiymatlarni kiritish
+                priceElem.innerText = '$' + parseFloat(pair.priceUsd).toFixed(10);
+                mcapElem.innerText = '$' + Math.round(pair.fdv).toLocaleString();
 
-        // Updating Price
-        document.getElementById('price').innerText = '$' + parseFloat(pair.priceUsd).toFixed(10);
-        
-        // Updating Market Cap
-        document.getElementById('mcap').innerText = '$' + Math.round(pair.fdv).toLocaleString();
-        
-        // Updating Transactions Count
-        const totalTrades = (pair.txns.h24.buys + pair.txns.h24.sells);
-        document.getElementById('trades').innerText = totalTrades;
-
-    } catch (error) {
-        console.error('API Error:', error);
-        document.getElementById('price').innerText = 'Error';
+                // Animatsiyani qayta ishga tushirish (Puls)
+                priceElem.classList.remove('update-flash');
+                mcapElem.classList.remove('update-flash');
+                void priceElem.offsetWidth; // Brauzer reflow
+                priceElem.classList.add('update-flash');
+                mcapElem.classList.add('update-flash');
+            }
+        } catch (e) {
+            console.error("Stats error:", e);
+        }
     }
-}
 
-// Initial fetch and auto-refresh setup
-fetchTokenData();
-setInterval(fetchTokenData, 30000); 
+    // 10 soniyada bir marta yangilash (Millioner tezligi! 🚀)
+    fetchStats();
+    setInterval(fetchStats, 10000); 
 </script>
 
 </body>
