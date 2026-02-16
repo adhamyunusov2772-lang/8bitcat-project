@@ -160,6 +160,55 @@ I’m being 100% honest—I’m a new dev and accidentally removed liquidity ear
         alert("Contract Address copied to clipboard!");
     }
 </script>
+<div id="stats-container" style="background: rgba(20, 20, 20, 0.8); padding: 20px; border-radius: 15px; margin: 25px auto; border: 2px solid #ff4d6d; max-width: 400px; font-family: 'Courier New', Courier, monospace; box-shadow: 0 0 20px rgba(255, 77, 109, 0.4);">
+    <h3 style="color: #ff4d6d; margin-top: 0; text-transform: uppercase; font-size: 18px;">📈 Live Market Data</h3>
+    
+    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dotted #444; padding-bottom: 5px;">
+        <span style="color: #aaa;">Price USD:</span>
+        <span id="price" style="font-weight: bold; color: #00ff00;">Loading...</span>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dotted #444; padding-bottom: 5px;">
+        <span style="color: #aaa;">Market Cap:</span>
+        <span id="mcap" style="font-weight: bold; color: #fff;">Loading...</span>
+    </div>
+
+    <div style="display: flex; justify-content: space-between;">
+        <span style="color: #aaa;">24h Trades:</span>
+        <span id="trades" style="font-weight: bold; color: #ff4d6d;">Loading...</span>
+    </div>
+    
+    <p style="font-size: 10px; color: #666; margin-top: 15px; font-style: italic;">Updates automatically every 30s via DexScreener API</p>
+</div>
+
+<script>
+async function fetchTokenData() {
+    try {
+        // Fetching data for 8BIT/SOL pair
+        const response = await fetch('https://api.dexscreener.com/latest/dex/pairs/solana/84hq8C3az5rpVGE1UBwwFZ9mkpxJbadaGYwWDsHbzXeh');
+        const data = await response.json();
+        const pair = data.pair;
+
+        // Updating Price
+        document.getElementById('price').innerText = '$' + parseFloat(pair.priceUsd).toFixed(10);
+        
+        // Updating Market Cap
+        document.getElementById('mcap').innerText = '$' + Math.round(pair.fdv).toLocaleString();
+        
+        // Updating Transactions Count
+        const totalTrades = (pair.txns.h24.buys + pair.txns.h24.sells);
+        document.getElementById('trades').innerText = totalTrades;
+
+    } catch (error) {
+        console.error('API Error:', error);
+        document.getElementById('price').innerText = 'Error';
+    }
+}
+
+// Initial fetch and auto-refresh setup
+fetchTokenData();
+setInterval(fetchTokenData, 30000); 
+</script>
 
 </body>
 </html>
