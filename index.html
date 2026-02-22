@@ -11,23 +11,75 @@
             background-color: #000; 
             color: #4ade80; 
             font-family: 'JetBrains Mono', monospace;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
-        /* 3D Karta effekti */
         .card-3d {
             transition: transform 0.1s ease-out;
             transform-style: preserve-3d;
             perspective: 1000px;
         }
-        /* Uchar animatsiya */
         .floating {
             animation: float 4s ease-in-out infinite;
         }
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
         .green-glow { box-shadow: 0 0 30px rgba(74, 222, 128, 0.4); }
-        .matrix-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba
+    </style>
+</head>
+<body class="p-6">
+    <main class="max-w-4xl mx-auto flex flex-col items-center py-10">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-2">BIT CAT $CAT</h1>
+            <p class="text-[10px] uppercase tracking-[0.3em] opacity-70">3D Matrix Infrastructure</p>
+        </header>
+
+        <div id="container-3d" class="relative mb-16">
+            <div class="card-3d floating">
+                <img src="https://i.ibb.co/6833/bitcat-logo.jpg" alt="3D CAT" 
+                     class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-green-400 green-glow object-cover">
+            </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <a href="https://pump.fun/coin/3srQ6UfiB4iRcbzuiWfGmTn33Q4D98y3X1zTdpiMpump" target="_blank" 
+               class="bg-green-400 text-black px-8 py-3 font-bold uppercase hover:bg-white transition-all">Buy $CAT</a>
+            <a href="https://t.me/project_bit" target="_blank" 
+               class="border border-green-400 px-6 py-3 uppercase hover:bg-green-400/20">Telegram</a>
+            <a href="https://x.com/chinesXNZ" target="_blank" 
+               class="border border-green-400 px-6 py-3 uppercase hover:bg-green-400/20">Twitter</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-10">
+            <div class="border border-green-400 p-6 bg-green-900/5">
+                <h3 class="text-lg font-bold mb-4 uppercase">Market Cap</h3>
+                <p class="text-2xl text-white">$2.7K+</p> </div>
+            <div class="border border-green-400 p-6 bg-green-900/5">
+                <h3 class="text-lg font-bold mb-4 uppercase">Status</h3>
+                <p class="text-2xl text-white">LIVE ON PUMP</p>
+            </div>
+        </div>
+
+        <div class="w-full border border-green-400 p-6 bg-green-500/5 text-center">
+            <p class="text-[8px] uppercase opacity-50 mb-2">Official Contract Address</p>
+            <p class="text-[10px] md:text-sm font-bold text-yellow-400 mb-4 break-all">3srQ6UfiB4iRcbzuiWfGmTn33Q4D98y3X1zTdpiMpump</p>
+            <button onclick="copyCA()" class="bg-green-400 text-black px-8 py-2 text-[10px] font-bold uppercase">Copy CA</button>
+        </div>
+    </main>
+
+    <script>
+        const card = document.querySelector('.card-3d');
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        function copyCA() {
+            navigator.clipboard.writeText('3srQ6UfiB4iRcbzuiWfGmTn33Q4D98y3X1zTdpiMpump');
+            alert('CA COPIED!');
+        }
+    </script>
+</body>
+</html>
