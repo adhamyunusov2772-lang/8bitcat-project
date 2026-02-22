@@ -3,209 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8BitCat ($8BIT) | The Legend of Solana</title>
+    <title>Bit CAT | $CAT Official</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #ff4d6d;
-            --secondary: #533483;
-            --bg: #0f0c29;
-            --text: #ffffff;
-            --neon: #00ff00;
-        }
-
-        body {
-            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-            color: var(--text);
+        body { 
+            background-color: #0d0d0d; 
+            color: #00ff41; 
             font-family: 'Press Start 2P', cursive;
-            margin: 0;
-            text-align: center;
-            line-height: 1.6;
+            background-image: linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
-
-        header {
-            padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.4);
-            border-bottom: 5px solid var(--primary);
+        .pixel-border {
+            border: 4px solid #00ff41;
+            box-shadow: 6px 6px 0px #003300;
         }
-
-        /* LIVE DASHBOARD DESIGN */
-        .live-dashboard {
-            background: rgba(0, 0, 0, 0.85);
-            border: 3px solid var(--primary);
-            max-width: 600px;
-            margin: -30px auto 40px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(255, 77, 109, 0.5);
-            position: relative;
-            z-index: 10;
-        }
-
-        .stats-grid {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .stat-item h4 { font-size: 10px; color: #aaa; margin-bottom: 10px; text-transform: uppercase; }
-        
-        .stat-value { 
-            font-size: 12px; 
-            color: var(--neon); 
-            text-shadow: 0 0 10px var(--neon);
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        /* Puls animatsiyasi */
-        .update-flash {
-            animation: flash-green 0.8s ease-out;
-        }
-
-        @keyframes flash-green {
-            0% { color: #ffffff; text-shadow: 0 0 20px #ffffff; transform: scale(1.1); }
-            100% { color: var(--neon); text-shadow: 0 0 10px var(--neon); transform: scale(1); }
-        }
-
-        h1 { font-size: 2.5rem; color: var(--primary); text-shadow: 4px 4px #000; margin: 10px 0; }
-        p { font-size: 0.8rem; color: #ccc; margin-bottom: 30px; }
-
-        .btn {
-            background: var(--primary);
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            display: inline-block;
-            margin: 10px;
-            font-size: 0.7rem;
-            border: 4px solid #fff;
-            box-shadow: 6px 6px 0px #000;
-            transition: 0.2s;
-            cursor: pointer;
-        }
-
-        .btn:hover { transform: scale(1.05); box-shadow: 2px 2px 0px #000; }
-
-        .ca-box {
-            background: rgba(0,0,0,0.6);
-            padding: 20px;
-            margin: 40px auto;
-            max-width: 85%;
-            border: 2px dashed var(--primary);
-            cursor: pointer;
-            word-break: break-all;
-        }
-
-        .section { padding: 40px 20px; max-width: 900px; margin: auto; }
-
-        .stat-card {
-            background: rgba(22, 33, 62, 0.9);
-            padding: 25px;
-            border-left: 5px solid var(--primary);
-            font-size: 0.6rem;
-            margin: 10px;
-        }
-
-        footer { padding: 50px; background: #000; font-size: 0.6rem; color: #666; }
-        .blink { animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+        .glow-text { text-shadow: 0 0 10px #00ff41; }
+        .cat-animation { animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
     </style>
 </head>
-<body>
+<body class="flex flex-col items-center p-6">
 
-<header>
-    <img src="logo.png" alt="8BitCat Logo" style="width: 180px; height: 180px; border: 4px solid var(--primary); image-rendering: pixelated; margin-bottom: 20px; box-shadow: 0 0 20px var(--primary);"> 
-    <h1>8BITCAT</h1>
-    <p class="blink">Leveling up on Solana Ecosystem...</p>3srQ6UfiB4iRcbzuiWfGmTn33Q4D98y3X1zTdpiMpump
-    <a href="https://raydium.io/swap/?inputMint=sol&outputMint=" target="_blank" class="btn">BUY ON RAYDIUM</a>
-</header>
+    <header class="mt-8 text-center">
+        <h1 class="text-2xl md:text-4xl glow-text mb-4">BIT CAT $CAT</h1>
+        <p class="text-[10px] text-white opacity-70">REBORN ON SOLANA PUMP.FUN</p>
+    </header>
 
-<div class="live-dashboard">
-    <div class="stats-grid">
-        <div class="stat-item">
-            <h4>PRICE USD</h4>
-            <span id="price" class="stat-value">LOADING...</span>
+    <main class="max-w-3xl w-full mt-10">
+        <div class="flex justify-center mb-10 cat-animation">
+            <img src="https://i.ibb.co/6833/bitcat-logo.jpg" alt="Bit CAT Logo" class="w-48 h-48 pixel-border rounded-lg">
         </div>
-        <div class="stat-item">
-            <h4>MARKET CAP</h4>
-            <span id="mcap" class="stat-value">LOADING...</span>
+
+        <div class="pixel-border bg-black/80 p-6 text-center mb-8">
+            <h2 class="text-sm mb-4">"THE FASTEST 8-BIT CAT IN THE GALAXY"</h2>
+            <p class="text-[9px] text-gray-400 leading-relaxed">
+                Bit CAT is back! No rugs, no taxes, just pure community energy. $2.7K Market Cap reached and growing. 
+                We are heading to the moon with the Bit CAT Family!
+            </p>
         </div>
-    </div>
-</div>
 
-<div class="section">
-    <h2 style="font-size: 1rem; line-height: 1.8;">🐱 $8BITCAT: BACK & STRONGER!</h2>
-    <p style="font-size: 0.7rem;">7.2 SOL Liquidity Re-added | 100% Transparency | Dev is here to stay!</p>
-    
-    <div class="ca-box" onclick="copyCA()">
-        <p style="font-size: 0.5rem; color: #aaa; margin-bottom: 10px;">CONTRACT ADDRESS:</p>
-        <span id="ca-text" style="font-size: 0.7rem; color: var(--neon);">3srQ6UfiB4iRcbzuiWfGmTn33Q4D98y3X1zTdpiMpump</span>
-        <p style="margin-top:10px; font-size:0.5rem; color: var(--primary);">(Click to copy)</p>
-    </div>
-</div>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="pixel-border bg-green-900/20 p-4 text-center">
+                <p class="text-[8px] text-white">STATUS</p>
+                <p class="text-[10px] mt-2">LIVE ON PUMP</p>
+            </div>
+            <div class="pixel-border bg-green-900/20 p-4 text-center">
+                <p class="text-[8px] text-white">MCAP</p>
+                <p class="text-[10px] mt-2">$2.7K+</p> </div>
+        </div>
 
-<div class="section">
-    <h2 style="margin-bottom: 30px;">TOKENOMICS</h2>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-        <div class="stat-card"><h3>LIQUIDITY</h3><p>100% BURNED 🔥</p></div>
-        <div class="stat-card"><h3>TAXES</h3><p>0% BUY/SELL</p></div>
-        <div class="stat-card"><h3>OWNERSHIP</h3><p>RENOUNCED 🛡️</p></div>
-    </div>
-    
-    <iframe 
-        src="https://dexscreener.com/solana/84hq8C3az5rpVGE1UBwwFZ9mkpxJbadaGYwWDsHbzXeh?embed=1&theme=dark&trades=1&info=0" 
-        style="width: 100%; height: 600px; border: none; margin-top: 40px; border-radius: 10px; box-shadow: 0 0 15px #ff4d6d;">
-    </iframe>
-</div>
+        <div class="w-full pixel-border bg-black p-4 mb-10">
+            <p class="text-[7px] mb-3 text-white">OFFICIAL CONTRACT ADDRESS:</p>
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <code id="ca-text" class="text-[9px] text-yellow-400 break-all text-center">3srQ6UfiB4iRcbzuiWfGmTn33Q4D98y3X1zTdpiMpump</code>
+                <button onclick="copyAddress()" class="w-full md:w-auto bg-[#00ff41] text-black text-[10px] px-6 py-2 font-bold hover:bg-white transition">COPY</button>
+            </div>
+        </div>
 
-<div class="section">
-    <h2>JOIN THE REVOLUTION</h2>
-    <a href="https://t.me/project_bit" target="_blank" class="btn" style="background: #24A1DE;">TELEGRAM</a>
-    <a href="https://x.com/chinesXNZ" target="_blank" class="btn" style="background: #000;">TWITTER (X)</a>
-</div>
+        <div class="flex flex-wrap justify-center gap-6 text-[10px]">
+            <a href="https://pump.fun/coin/3srQ6UfiB4iRcbzuiWfGmTn33Q4D98y3X1zTdpiMpump" class="hover:underline">PUMP.FUN</a>
+            <a href="https://t.me/bitproject" class="hover:underline">TELEGRAM</a>
+            <a href="https://x.com/bitproject" class="hover:underline">TWITTER</a>
+        </div>
+    </main>
 
-<footer>
-    <p>&copy; 2026 8BITCAT TEAM. <br> INVEST IN MEMES, BELIEVE IN PIXELS.</p>
-</footer>
+    <footer class="mt-20 text-[7px] opacity-30">
+        &copy; 2026 BIT CAT REVOLUTION. NO PIXELS WERE HARMED.
+    </footer>
 
-<script>
-    function copyCA() {
-        const ca = "AZFKmEjsPYnxf3ZKn3pu2KpgvmC1ENuJU7oHtEej4k81";
-        navigator.clipboard.writeText(ca);
-        alert("Contract Address copied!");
-    }
-
-    async function fetchStats() {
-        try {
-            const response = await fetch('https://api.dexscreener.com/latest/dex/pairs/solana/84hq8C3az5rpVGE1UBwwFZ9mkpxJbadaGYwWDsHbzXeh');
-            const data = await response.json();
-            const pair = data.pair;
-
-            if (pair) {
-                const priceElem = document.getElementById('price');
-                const mcapElem = document.getElementById('mcap');
-
-                // Yangi qiymatlarni kiritish
-                priceElem.innerText = '$' + parseFloat(pair.priceUsd).toFixed(10);
-                mcapElem.innerText = '$' + Math.round(pair.fdv).toLocaleString();
-
-                // Animatsiyani qayta ishga tushirish (Puls)
-                priceElem.classList.remove('update-flash');
-                mcapElem.classList.remove('update-flash');
-                void priceElem.offsetWidth; // Brauzer reflow
-                priceElem.classList.add('update-flash');
-                mcapElem.classList.add('update-flash');
-            }
-        } catch (e) {
-            console.error("Stats error:", e);
+    <script>
+        function copyAddress() {
+            const el = document.createElement('textarea');
+            el.value = '3srQ6UfiB4iRcbzuiWfGmTn33Q4D98y3X1zTdpiMpump';
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert('CA COPIED TO CLIPBOARD!');
         }
-    }
-
-    // 10 soniyada bir marta yangilash (Millioner tezligi! 🚀)
-    fetchStats();
-    setInterval(fetchStats, 10000); 
-</script>
-
+    </script>
 </body>
 </html>
